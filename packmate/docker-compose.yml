@@ -1,14 +1,14 @@
 name: packmate
 
 services:
-  app:
+  packmate-app:
     container_name: packmate-app
     restart: always
     profiles:
       - packmate
       - all
     depends_on:
-      db:
+      packmate-db:
         condition: service_healthy
     image: ${PACKMATE_IMAGE:-registry.gitlab.com/packmate/packmate:latest}
     environment:
@@ -27,7 +27,7 @@ services:
       - ${DATA_DIR}//packmate/rsa_keys/:/app/rsa_keys/:ro
     network_mode: "host"
 
-  db:
+  packmate-db:
     container_name: packmate-db
     restart: always
     profiles:
