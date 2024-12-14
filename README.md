@@ -30,6 +30,16 @@ On a virtual machine
     docker compose --env-file .env --profile all up -d
     ```
 
+## Post-Setup
+
+- Configure Safeline creds
+
+    ```shell
+    docker exec safeline-mgt resetadmin
+    ```
+
+- Configure Portainer creds
+
 ## Profiles
 
 You can choose what service to start using compose profiles
