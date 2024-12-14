@@ -61,5 +61,6 @@ Specify them like
 |--------------------|--------|
 | Portainer          | `9443` |
 | Portainer Agent    | `9001` |
+| Culhwch            | `8893` |
 | Packmate           | `65000`|
 | SafeLine           | `9444` |
