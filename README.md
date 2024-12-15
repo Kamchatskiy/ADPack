@@ -18,7 +18,7 @@ On a virtual machine
 0. Clone repository
 
     ```shell
-    cd /home && git clone https://github.com/kamchatskiy/ADPack adpack
+    cd /home && git clone --single-branch https://github.com/kamchatskiy/ADPack adpack
     ```
 
 1. Update `.env` file
