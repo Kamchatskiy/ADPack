@@ -12,7 +12,7 @@ services:
         condition: service_healthy
     image: ${PACKMATE_IMAGE:-registry.gitlab.com/packmate/packmate:latest}
     environment:
-      WEB_LOGIN: ${USER:-}
+      WEB_LOGIN: ${USER:-user}
       WEB_PASSWORD: ${PASSWORD:-}
       DB_PASSWORD: ${PASSWORD:-}
       INTERFACE: ${NET_INTERFACE}
@@ -40,11 +40,11 @@ services:
       timeout: 5s
       retries: 15
     environment:
-      POSTGRES_USER: ${USER}
+      POSTGRES_DB: packmate
+      POSTGRES_USER: packmate
       POSTGRES_PASSWORD: ${PASSWORD}
-      POSTGRES_DB: ${USER}
     volumes:
-      - ${DATA_DIR}/packmate:/var/lib/postgresql/data
+      - ${DATA_DIR}/packmate/db:/var/lib/postgresql/data
       - ${PROJECT_DIR}/packmate/db/postgresql.conf:/tmp/postgresql.conf:ro
       - ${PROJECT_DIR}/packmate/db/update_db_config.sh:/docker-entrypoint-initdb.d/_update_db_config.sh:ro
     network_mode: "host"
