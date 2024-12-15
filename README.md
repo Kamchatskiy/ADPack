@@ -23,24 +23,14 @@ On a virtual machine
 
 1. Update `.env` file
 2. Configure docker compose files.
-*You need to open services' ports in [Safeline's docker-compose file](./safeline/docker-compose.yml)*
+*You need to open game services' ports in [Safeline's docker-compose file](./safeline/docker-compose.yml)*
 3. Run with:
 
     ```shell
     docker compose --env-file .env --profile all up -d
     ```
 
-## Post-Setup
-
-- Configure Safeline creds
-
-    ```shell
-    docker exec safeline-mgt resetadmin
-    ```
-
-- Configure Portainer creds
-
-## Profiles
+### Profiles
 
 You can choose what service to start using compose profiles
 
@@ -55,12 +45,36 @@ Specify them like
 - `culhwch`
 - `packmate`
 
+## Post-Setup
+
+### Safeline
+
+1. Configure Safeline creds
+
+    ```shell
+    docker exec safeline-mgt resetadmin
+    ```
+
+2. Patch game services so they are in `safeline-ce` network
+
+    ```yaml
+    services:
+      service:
+        ...
+        networks:
+            safeline-ce:
+        ...
+    networks:
+      safeline-ce:
+        external: true
+    ```
+
 ## Port mapping
 
-| Service            | Port   |
-|--------------------|--------|
-| Portainer          | `9443` |
-| Portainer Agent    | `9001` |
-| Culhwch            | `8893` |
-| Packmate           | `65000`|
-| SafeLine           | `9444` |
+| Service            | Port    |
+|--------------------|---------|
+| Portainer          | `20000` |
+| Portainer Agent    | `20001` |
+| SafeLine           | `20002` |
+| Culhwch            | `20003` |
+| Packmate           | `65000` |

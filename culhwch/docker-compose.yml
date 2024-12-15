@@ -14,7 +14,7 @@ services:
     networks:
       - culhwch
     ports:
-      - 8893:80
+      - 20003:80
     expose:
       - 80
 

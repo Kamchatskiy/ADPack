@@ -4,7 +4,7 @@ services:
   mgt:
     # !!!
     ports:
-      - 9444:1443
+      - 20002:1443
 
     container_name: safeline-mgt
     restart: always
