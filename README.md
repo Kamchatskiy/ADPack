@@ -24,6 +24,20 @@ On a virtual machine
 1. Update `.env` file
 2. Configure docker compose files.
 *You need to open game services' ports in [Safeline's docker-compose file](./safeline/docker-compose.yml)*
+Example:
+
+    ```yaml
+    name: safeline
+
+    services:
+      mgt:
+        # !!!
+        ports:
+          - 20002:1443
+          - 3000:3000 # if game services listen 3000 port
+
+    ```
+
 3. Run with:
 
     ```shell
@@ -55,7 +69,7 @@ Specify them like
     docker exec safeline-mgt resetadmin
     ```
 
-2. Patch game services so they are in `safeline-ce` network
+2. Patch game services so they are in `safeline-ce` network and don't have any published ports
 
     ```yaml
     services:
@@ -63,11 +77,15 @@ Specify them like
         ...
         networks:
             safeline-ce:
+        ports: # remove this
+            - 3000:3000 # remove this
         ...
     networks:
       safeline-ce:
         external: true
     ```
+
+3. Check [official guide for configuration](https://docs.waf.chaitin.com/en/tutorials/Configuration) for the next steps
 
 ## Port mapping
 
