@@ -7,12 +7,12 @@ services:
     profiles:
       - caronte
       - all
-    image: ghcr.io/eciavatta/caronte:latest
+    image: ${CARONTE_IMAGE:-ghcr.io/eciavatta/caronte:latest}
     environment:
       MONGO_HOST: caronte-db
       MONGO_PORT: 27017
     depends_on:
-      - mongo
+      - caronte-db
     networks:
       - caronte
     ports:
