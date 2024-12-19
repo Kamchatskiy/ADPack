@@ -3,7 +3,6 @@ name: adpack
 include:
   - ${PROJECT_DIR}/portainer/docker-compose.yml
   - ${PROJECT_DIR}/culhwch/docker-compose.yml
-  - ${PROJECT_DIR}/packmate/docker-compose.yml
   - ${PROJECT_DIR}/safeline/docker-compose.yml
   - ${PROJECT_DIR}/code/docker-compose.yml
   - ${PROJECT_DIR}/caronte/docker-compose.yml
