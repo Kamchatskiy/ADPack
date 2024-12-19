@@ -1,0 +1,36 @@
+name: caronte
+
+services:
+  caronte-app:
+    container_name: caronte-app
+    restart: always
+    profiles:
+      - caronte
+      - all
+    image: ${CARONTE_IMAGE:-ghcr.io/eciavatta/caronte:latest}
+    environment:
+      MONGO_HOST: caronte-db
+      MONGO_PORT: 27017
+    depends_on:
+      - caronte-db
+    networks:
+      - caronte
+    ports:
+      - 20004:3333
+
+  caronte-db:
+    container_name: caronte-db
+    restart: always
+    profiles:
+      - caronte
+      - all
+    image: mongo:4.4
+    volumes:
+      - ${DATA_DIR}/caronte/db:/data/db
+    networks:
+      caronte:
+        aliases:
+          - caronte-db
+
+networks:
+  caronte:
