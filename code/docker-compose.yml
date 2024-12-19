@@ -5,7 +5,7 @@ services:
       - code
       - all
     restart: always
-    image: lscr.io/linuxserver/code-server:latest
+    image: ${CODE_IMAGE:-lscr.io/linuxserver/code-server:latest}
     environment:
       - PUID=1000
       - PGID=1000
