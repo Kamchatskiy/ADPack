@@ -9,6 +9,7 @@
   - Agent: in case you have an own local Portainer instance running
 - [Safeline](https://github.com/chaitin/SafeLine): Web Application Firewall (WAF)
 - [Packmate](https://gitlab.com/packmate/Packmate): Traffic sniffer
+- [Caronte](https://github.com/eciavatta/caronte): Traffic sniffer
 - [Culhwch](https://github.com/arkiix/CulhwchFarm): Exploit farm
 
 ## Setup
@@ -58,6 +59,7 @@ Specify them like
 - `portainer_app`
 - `culhwch`
 - `packmate`
+- `caronte`
 
 ## Post-Setup
 
@@ -95,4 +97,5 @@ Specify them like
 | Portainer Agent    | `20001` |
 | SafeLine           | `20002` |
 | Culhwch            | `20003` |
+| Caronte            | `20004` |
 | Packmate           | `65000` |
