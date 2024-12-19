@@ -7,6 +7,7 @@
 - [Portainer](https://github.com/portainer/portainer): GUI service for managing docker containers
   - Standalone
   - Agent: in case you have an own local Portainer instance running
+- [Code-server](https://github.com/coder/code-server): Remote development
 - [Safeline](https://github.com/chaitin/SafeLine): Web Application Firewall (WAF)
 - [Packmate](https://gitlab.com/packmate/Packmate): Traffic sniffer
 - [Caronte](https://github.com/eciavatta/caronte): Traffic sniffer
@@ -60,6 +61,7 @@ Specify them like
 - `culhwch`
 - `packmate`
 - `caronte`
+- `code`
 
 ## Post-Setup
 
@@ -98,4 +100,5 @@ Specify them like
 | SafeLine           | `20002` |
 | Culhwch            | `20003` |
 | Caronte            | `20004` |
+| Code-server        | `20005` |
 | Packmate           | `65000` |
